@@ -1,10 +1,10 @@
 {
     "name"        : "shop-front",
-    "script"      : "/src/ShopFront/server.js",
+    "script"      : "src/ShopFront/server.js",
     "instances"   : 1,
     "merge_logs"  : true,
     "log_date_format" : "YYYY-MM-DD HH:mm Z",
-    "watch": ["/src/ShopFront/server.js"],
+    "watch": ["src/ShopFront/server.js"],
     "watch_options": {
     "followSymlinks": true,
     "usePolling"   : true,
