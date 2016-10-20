@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome home - MyShop</title>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">MyShop</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Welcome home</h1>
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Products Api</h3>
+                <span id="ProductsApiPlaceholder"></span>
+            </div>
+            <div class="col-lg-4">
+                <h3>Recommandations Api</h3>
+                <span id="RecommandationsApiPlaceholder"></span>
+            </div>
+            <div class="col-lg-4">
+                <h3>Ratings Api</h3>
+                <span id="RatingsApiPlaceholder"></span>
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; 2016 - MyShop</p>
+        </footer>
+    </div>
+    
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script src="/js/site.min.js?v=4YtIaePNzexGu4QQcABZ3hmCTZ5PpZ6UoIpVvTVV2ww"></script>
+    
+    <script type="text/javascript">
+        ($(document).ready(function(){
+            var productsApiPlaceholder = $("#ProductsApiPlaceholder");
+            var recommandationsApiPlaceholder = $("#RecommandationsApiPlaceholder");
+            var ratingsApiPlaceholder = $("#RatingsApiPlaceholder");
+
+            var productsApiUrl = "http://localhost:5001/api/products";
+            var ratingsApiUrl = "http://localhost:5002/api/ratings";
+            var recommandationsApiUrl = "http://localhost:5003/api/recommandations";
+
+            productsApiPlaceholder.text("Loading...");
+            recommandationsApiPlaceholder.text("Loading...");
+            ratingsApiPlaceholder.text("Loading...");
+
+            function callProductsApi(){
+                $.ajax({
+                    url: productsApiUrl + "?_=" + Math.random(),
+                    type: "GET"
+                })
+                .success(function(message){
+                    productsApiPlaceholder.text(message);
+                })
+                .error(function(){
+                    productsApiPlaceholder.text("Not responding yet.");
+                });
+            };
+
+            function callRecommandationsApi(){
+                $.ajax({
+                    url: recommandationsApiUrl + "?_=" + Math.random(),
+                    type: "GET"
+                })
+                .success(function(message){
+                    recommandationsApiPlaceholder.text(message);
+                })
+                .error(function(){
+                    recommandationsApiPlaceholder.text("Not responding yet.");
+                });
+            };
+
+            function callRatingsApi(){
+                $.ajax({
+                    url: ratingsApiUrl + "?_=" + Math.random(),
+                    type: "GET"
+                })
+                .success(function(message){
+                    ratingsApiPlaceholder.text(message);
+                })
+                .error(function(){
+                    ratingsApiPlaceholder.text("Not responding yet.");
+                });
+            };
+
+            setInterval(callProductsApi, 3000);
+            setInterval(callRecommandationsApi, 3000);
+            setInterval(callRatingsApi, 3000);
+        }));
+    </script>
+</body>
+</html>
