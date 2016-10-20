@@ -1,0 +1,14 @@
+{
+    "name"        : "shop-products",
+    "script"      : "src/ProductsApi/server.js",
+    "instances"   : 1,
+    "merge_logs"  : true,
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "watch": ["src/ProductsApi/server.js"],
+    "watch_options": {
+    "followSymlinks": true,
+    "usePolling"   : true,
+    "interval"    : 5
+    },
+    "post_update": "cd src/ProductsApi && npm install"
+}
