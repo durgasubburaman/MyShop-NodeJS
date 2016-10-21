@@ -9,6 +9,6 @@
     "followSymlinks": true,
     "usePolling"   : true,
     "interval"    : 5
-    },
-    "post_update": "cd src/ShopFront && npm install"
+    }//,
+    //"post_update": "cd src/ShopFront && npm install"
 }
